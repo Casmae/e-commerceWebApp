@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Microservice Client </title>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css} "/>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link th:href="@{/style.css}" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div th:replace="~{fragments/header :: header}"> </div>
+        <div class="container">
+        <div class="bMainTitle" th:unless="${#maps.isEmpty(map)}">Détail de votre panier
+            <span class="jsNbArticles">( [[${#maps.size(map)}]] Produits)</span>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-8">
+                <th:block  th:each="entry: ${map}">
+                    <div class ="row border rounded">
+
+                        <div class="col-3">
+                            <img th:src="${entry.getKey().illustration}" class="img-fluid" />
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <a>
+                                    <b>[[${entry.getKey().name}]]</b>
+                                </a>
+                            </div>
+                            <div>
+                                <b>[[${entry.getValue().quantity}]]</b>
+                            </div>
+                            <div>
+                                <span>x</span>
+                                <span>[[${entry.getKey().price}]]</span>
+                            </div>
+                            <div>
+                                <div>
+                                    <b>[[${entry.getKey().price * entry.getValue().quantity}]]</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1">
+
+                            <div>
+                                <form th:action="@{|/cartItem/delete/${entry.getValue().productId}|}" method="POST" enctype="application/x-www-form-urlencoded">
+
+                                    <input class="btRed" type="submit" value="Supprimer" th:onclick="">
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row m-1">&nbsp;</div>
+                </th:block>
+            </div>
+            <div class="col-sm-4" th:unless="${#maps.isEmpty(map)}">
+                <div>
+                     <span class="bMainTitle"> Récapitulatif </span>
+                </div>
+                <div class ="border rounded color-block">
+                    <div>
+                        <span class="h3"> Prix Total :</span>
+                    </div>
+                    <div>
+                        <span class="h4"> [[${total}]]</span>
+                    </div>
+                    <div>
+                        <form th:action="@{|/order/addOrder|}" method="POST" enctype="application/x-www-form-urlencoded">
+
+                            <input type="hidden" name="prixTotal" th:value="${total}">
+                            <input class="btGreen" type="submit" value="Order" th:onclick="">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    <div class="bMainTitle">
+        <th th:if="${#maps.isEmpty(map)}">
+            <h3> Votre Panier est Vide !</h3>
+        </th>
+    </div>
+    </body>
+</html>

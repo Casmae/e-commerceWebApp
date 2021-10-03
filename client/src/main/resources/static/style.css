@@ -1,0 +1,119 @@
+#grid {
+    display: grid;
+    width: 95%;
+    margin: 15px;
+    grid-template-columns: 1fr 1fr 1fr ;
+    column-gap: 16px;
+    row-gap: 15px;
+    margin-top: 20px;
+
+}
+
+#areaA {
+
+    position: center;
+}
+
+.home-title{
+    padding-top: 10px;
+    padding-left: 15px;
+    position: center !important;
+    color: #343a40;
+    font-weight: bold;
+
+}
+
+.fpTopZone {
+    display: table;
+    font-size: 1.08em;
+    padding: 22px 0 0 0;
+    table-layout: fixed;
+    width: 100%;
+}
+.fpImg {
+    padding-left: 10px;
+    position: relative;
+    width: 310px;
+}
+
+.fpImg, .fpTMain {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.fpTMain {
+    padding-left: 40px;
+    position: relative;
+    width: calc(100% - 310px);
+}
+
+.img {
+    display: block;
+    width: 300px;
+    height: 300px;
+}
+
+.detail{
+    display: block;
+    width: 300px;
+    height: 300px;
+    position: center;
+    margin: 5%;
+
+}
+
+.title{
+    font-weight: bold;
+    color: #343a40;
+    padding: 5% ;
+}
+
+.price{
+    color: darkblue !important;
+
+}
+
+.btGreen {
+    background: linear-gradient(to bottom, #44c260 0%,#44c260 100%);
+    background-color: #44c260;
+    border-color: #44c260;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btRed {
+    background: linear-gradient(to bottom, #cb1919 0%, #cb1919 100%);
+    background-color: #cb1919;
+    border-color: #cb1919;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+
+    bottom:   10px;
+}
+
+.succes{
+    background-color: #44c260;
+    position: center;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+label {
+    margin: .4rem 0;
+}
+
+.bMainTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.color-block{
+    background-color: #cb1919;
+}
+
