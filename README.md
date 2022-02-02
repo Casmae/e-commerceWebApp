@@ -1,4 +1,4 @@
-# GRAILS_PointOfInterests
+# E-commerce WebApp
 
 J’ai mis en place le projet de site e-commerce avec Spring et Thymleaf
 
